@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B13C6366-DDB4-41D4-855D-49E36E7021FE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Beginner.Blog</RootNamespace>
+    <AssemblyName>Beginner.Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\global.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\login-bg-1.jpg" />
+    <Content Include="Images\login-bg.jpg" />
+    <Content Include="Plugins\bootstrap\bootstrap.min.css" />
+    <Content Include="Plugins\layui\css\layui.css" />
+    <Content Include="Plugins\layui\css\mobile.css" />
+    <Content Include="Plugins\layui\css\modules\code.css" />
+    <Content Include="Plugins\layui\css\modules\laydate\icon.png" />
+    <Content Include="Plugins\layui\css\modules\laydate\laydate.css" />
+    <Content Include="Plugins\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="Plugins\layui\css\modules\layer\default\icon.png" />
+    <Content Include="Plugins\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="Plugins\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="Plugins\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="Plugins\layui\css\modules\layer\layer.css" />
+    <Content Include="Plugins\layui\images\face\0.gif" />
+    <Content Include="Plugins\layui\images\face\1.gif" />
+    <Content Include="Plugins\layui\images\face\10.gif" />
+    <Content Include="Plugins\layui\images\face\11.gif" />
+    <Content Include="Plugins\layui\images\face\12.gif" />
+    <Content Include="Plugins\layui\images\face\13.gif" />
+    <Content Include="Plugins\layui\images\face\14.gif" />
+    <Content Include="Plugins\layui\images\face\15.gif" />
+    <Content Include="Plugins\layui\images\face\16.gif" />
+    <Content Include="Plugins\layui\images\face\17.gif" />
+    <Content Include="Plugins\layui\images\face\18.gif" />
+    <Content Include="Plugins\layui\images\face\19.gif" />
+    <Content Include="Plugins\layui\images\face\2.gif" />
+    <Content Include="Plugins\layui\images\face\20.gif" />
+    <Content Include="Plugins\layui\images\face\21.gif" />
+    <Content Include="Plugins\layui\images\face\22.gif" />
+    <Content Include="Plugins\layui\images\face\23.gif" />
+    <Content Include="Plugins\layui\images\face\24.gif" />
+    <Content Include="Plugins\layui\images\face\25.gif" />
+    <Content Include="Plugins\layui\images\face\26.gif" />
+    <Content Include="Plugins\layui\images\face\27.gif" />
+    <Content Include="Plugins\layui\images\face\28.gif" />
+    <Content Include="Plugins\layui\images\face\29.gif" />
+    <Content Include="Plugins\layui\images\face\3.gif" />
+    <Content Include="Plugins\layui\images\face\30.gif" />
+    <Content Include="Plugins\layui\images\face\31.gif" />
+    <Content Include="Plugins\layui\images\face\32.gif" />
+    <Content Include="Plugins\layui\images\face\33.gif" />
+    <Content Include="Plugins\layui\images\face\34.gif" />
+    <Content Include="Plugins\layui\images\face\35.gif" />
+    <Content Include="Plugins\layui\images\face\36.gif" />
+    <Content Include="Plugins\layui\images\face\37.gif" />
+    <Content Include="Plugins\layui\images\face\38.gif" />
+    <Content Include="Plugins\layui\images\face\39.gif" />
+    <Content Include="Plugins\layui\images\face\4.gif" />
+    <Content Include="Plugins\layui\images\face\40.gif" />
+    <Content Include="Plugins\layui\images\face\41.gif" />
+    <Content Include="Plugins\layui\images\face\42.gif" />
+    <Content Include="Plugins\layui\images\face\43.gif" />
+    <Content Include="Plugins\layui\images\face\44.gif" />
+    <Content Include="Plugins\layui\images\face\45.gif" />
+    <Content Include="Plugins\layui\images\face\46.gif" />
+    <Content Include="Plugins\layui\images\face\47.gif" />
+    <Content Include="Plugins\layui\images\face\48.gif" />
+    <Content Include="Plugins\layui\images\face\49.gif" />
+    <Content Include="Plugins\layui\images\face\5.gif" />
+    <Content Include="Plugins\layui\images\face\50.gif" />
+    <Content Include="Plugins\layui\images\face\51.gif" />
+    <Content Include="Plugins\layui\images\face\52.gif" />
+    <Content Include="Plugins\layui\images\face\53.gif" />
+    <Content Include="Plugins\layui\images\face\54.gif" />
+    <Content Include="Plugins\layui\images\face\55.gif" />
+    <Content Include="Plugins\layui\images\face\56.gif" />
+    <Content Include="Plugins\layui\images\face\57.gif" />
+    <Content Include="Plugins\layui\images\face\58.gif" />
+    <Content Include="Plugins\layui\images\face\59.gif" />
+    <Content Include="Plugins\layui\images\face\6.gif" />
+    <Content Include="Plugins\layui\images\face\60.gif" />
+    <Content Include="Plugins\layui\images\face\61.gif" />
+    <Content Include="Plugins\layui\images\face\62.gif" />
+    <Content Include="Plugins\layui\images\face\63.gif" />
+    <Content Include="Plugins\layui\images\face\64.gif" />
+    <Content Include="Plugins\layui\images\face\65.gif" />
+    <Content Include="Plugins\layui\images\face\66.gif" />
+    <Content Include="Plugins\layui\images\face\67.gif" />
+    <Content Include="Plugins\layui\images\face\68.gif" />
+    <Content Include="Plugins\layui\images\face\69.gif" />
+    <Content Include="Plugins\layui\images\face\7.gif" />
+    <Content Include="Plugins\layui\images\face\70.gif" />
+    <Content Include="Plugins\layui\images\face\71.gif" />
+    <Content Include="Plugins\layui\images\face\8.gif" />
+    <Content Include="Plugins\layui\images\face\9.gif" />
+    <Content Include="Plugins\layui\layui.js" />
+    <Content Include="Plugins\layui\lay\dest\layui.all.js" />
+    <Content Include="Plugins\layui\lay\lib\jquery.js" />
+    <Content Include="Plugins\layui\lay\modules\code.js" />
+    <Content Include="Plugins\layui\lay\modules\element.js" />
+    <Content Include="Plugins\layui\lay\modules\flow.js" />
+    <Content Include="Plugins\layui\lay\modules\form.js" />
+    <Content Include="Plugins\layui\lay\modules\laydate.js" />
+    <Content Include="Plugins\layui\lay\modules\layedit.js" />
+    <Content Include="Plugins\layui\lay\modules\layer.js" />
+    <Content Include="Plugins\layui\lay\modules\laypage.js" />
+    <Content Include="Plugins\layui\lay\modules\laytpl.js" />
+    <Content Include="Plugins\layui\lay\modules\tree.js" />
+    <Content Include="Plugins\layui\lay\modules\upload.js" />
+    <Content Include="Plugins\layui\lay\modules\util.js" />
+    <Content Include="Plugins\layui\user-defined\demo.js" />
+    <Content Include="Plugins\layui\user-defined\dgrid.js" />
+    <Content Include="Plugins\wangEditor\dist\css\wangEditor.css" />
+    <Content Include="Plugins\wangEditor\dist\css\wangEditor.min.css" />
+    <Content Include="Plugins\wangEditor\dist\js\lib\jquery-1.10.2.min.js" />
+    <Content Include="Plugins\wangEditor\dist\js\lib\jquery-2.2.1.js" />
+    <Content Include="Plugins\wangEditor\dist\js\wangEditor.js" />
+    <Content Include="Plugins\wangEditor\dist\js\wangEditor.min.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\highlight.js" />
+    <Content Include="Plugins\layui\font\iconfont.eot" />
+    <Content Include="Plugins\layui\font\iconfont.svg" />
+    <Content Include="Plugins\layui\font\iconfont.ttf" />
+    <Content Include="Plugins\layui\font\iconfont.woff" />
+    <Content Include="Plugins\wangEditor\dist\css\fonts\icomoon.eot" />
+    <Content Include="Plugins\wangEditor\dist\css\fonts\icomoon.svg" />
+    <Content Include="Plugins\wangEditor\dist\css\fonts\icomoon.ttf" />
+    <Content Include="Plugins\wangEditor\dist\css\fonts\icomoon.woff" />
+    <Content Include="Plugins\wangEditor\dist\css\wangEditor.less" />
+    <Content Include="Log4Net.config" />
+    <Content Include="Configs\Files\EmailConfig.json" />
+    <None Include="Properties\PublishProfiles\beginner.blog.pubxml" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Article\Create.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
+    <Content Include="Views\Article\List.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\ErrorPage\Error404.cshtml" />
+    <Content Include="Views\ErrorPage\Error500.cshtml" />
+    <Content Include="Views\ErrorPage\IllegalOperation.cshtml" />
+    <Content Include="Views\ErrorPage\LackAuthority.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Archive.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
+    <Content Include="Views\Log\List.cshtml" />
+    <Content Include="Views\Message\NotFound.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Shared\_ManageLayoutPage.cshtml" />
+    <Content Include="Views\Upload\WangEditor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutoFacBootStrapper.cs" />
+    <Compile Include="Configs\ConfigHelper.cs" />
+    <Compile Include="Configs\Models\Setting.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Controllers\ValidateCodeController.cs" />
+    <Compile Include="Core\Authentication\AspFormsAuthentication.cs" />
+    <Compile Include="Core\Authentication\IFormsAuthentication.cs" />
+    <Compile Include="Core\BaseEntity.cs" />
+    <Compile Include="Core\BaseEntityTypeConfiguration.cs" />
+    <Compile Include="Core\EfRepository.cs" />
+    <Compile Include="Core\Email\EmailAccount.cs" />
+    <Compile Include="Core\Email\EmailServiceFactory.cs" />
+    <Compile Include="Core\Email\IEmailService.cs" />
+    <Compile Include="Core\Email\SmtpService.cs" />
+    <Compile Include="Core\Engines\EngineContainer.cs" />
+    <Compile Include="Core\Engines\EngineContainerFactory.cs" />
+    <Compile Include="Core\Engines\IDependency.cs" />
+    <Compile Include="Core\Engines\IEngine.cs" />
+    <Compile Include="Core\EntityContext.cs" />
+    <Compile Include="Core\Enum.cs" />
+    <Compile Include="Core\Extension\QueryExt.cs" />
+    <Compile Include="Core\Extension\StrExt.cs" />
+    <Compile Include="Core\IDbContext.cs" />
+    <Compile Include="Core\Interceptor\EfInterceptorLogging.cs" />
+    <Compile Include="Core\Interceptor\EfInterceptorTransientErrors.cs" />
+    <Compile Include="Core\IReadOnlyRepository.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\Logging\ILogger.cs" />
+    <Compile Include="Core\Logging\Log4NetAdapter.cs" />
+    <Compile Include="Core\Logging\Logger.cs" />
+    <Compile Include="Core\Messaging\GetPagesResponse.cs" />
+    <Compile Include="Core\Messaging\PageRequest.cs" />
+    <Compile Include="Core\Messaging\ResponseBase.cs" />
+    <Compile Include="Core\ObjectContext.cs" />
+    <Compile Include="Core\PagedList.cs" />
+    <Compile Include="Core\Sort.cs" />
+    <Compile Include="Core\VerifyCode\ValidateCode.cs" />
+    <Compile Include="Filters\FilterConfig.cs" />
+    <Compile Include="Filters\WebHandleErrorAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\DataHelper.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\PinYinHelper.cs" />
+    <Compile Include="Helper\WebHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Archive.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\LoginLog.cs" />
+    <Compile Include="Models\Mapping\AccountMap.cs" />
+    <Compile Include="Models\Mapping\ArchiveMap.cs" />
+    <Compile Include="Models\Mapping\ArticleMap.cs" />
+    <Compile Include="Models\Mapping\CategoryMap.cs" />
+    <Compile Include="Models\Mapping\CommentMap.cs" />
+    <Compile Include="Models\Mapping\LoginLogMap.cs" />
+    <Compile Include="Models\Mapping\LogMap.cs" />
+    <Compile Include="Models\Mapping\TagMap.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Implements\ArticleService.cs" />
+    <Compile Include="Service\Interfaces\IArticleService.cs" />
+    <Compile Include="Service\Messaging\Request\GetPageArticlesRequest.cs" />
+    <Compile Include="ViewModels\ArticleModel.cs" />
+    <Compile Include="ViewModels\ArticleTopModel.cs" />
+    <Compile Include="ViewModels\CategoryModel.cs" />
+    <Compile Include="ViewModels\CommentModel.cs" />
+    <Compile Include="ViewModels\Enum.cs" />
+    <Compile Include="ViewModels\LoginModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configs\Files\setting.json" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\dgrid.json" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Setting\BasicSetting.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\ValidateCode\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60085</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57351/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
