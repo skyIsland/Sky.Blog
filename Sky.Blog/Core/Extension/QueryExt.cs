@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Beginner.Blog.Core;
+using Sky.Blog.Core;
 using XCode;
 
 namespace Sky.Blog.Core.Extension

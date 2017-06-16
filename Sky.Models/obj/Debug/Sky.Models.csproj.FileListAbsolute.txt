@@ -10,3 +10,14 @@ E:\ShaDaMeng\besteasyteam-beginner.blog-master\beginner.blog\Sky.Models\bin\Debu
 E:\ShaDaMeng\besteasyteam-beginner.blog-master\beginner.blog\Sky.Models\obj\Debug\Sky.Models.csprojResolveAssemblyReference.cache
 E:\ShaDaMeng\besteasyteam-beginner.blog-master\beginner.blog\Sky.Models\obj\Debug\Sky.Models.dll
 E:\ShaDaMeng\besteasyteam-beginner.blog-master\beginner.blog\Sky.Models\obj\Debug\Sky.Models.pdb
+F:\git\Sky.Blog\Sky.Models\bin\Debug\Sky.Models.dll
+F:\git\Sky.Blog\Sky.Models\bin\Debug\Sky.Models.pdb
+F:\git\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.dll
+F:\git\Sky.Blog\Sky.Models\bin\Debug\XCode.dll
+F:\git\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.pdb
+F:\git\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.xml
+F:\git\Sky.Blog\Sky.Models\bin\Debug\XCode.pdb
+F:\git\Sky.Blog\Sky.Models\bin\Debug\XCode.xml
+F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.csprojResolveAssemblyReference.cache
+F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.dll
+F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.pdb

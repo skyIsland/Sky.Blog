@@ -8,7 +8,7 @@ using Sky.Blog.Core;
 
 namespace Sky.Blog.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
         // GET: Article
         public ActionResult List(int pageIndex = 1, int pageSize = 15)
@@ -17,7 +17,7 @@ namespace Sky.Blog.Controllers
             int count = Article.FindCount(Article._.IsDel == 0);
             ViewBag.Categories = Category.FindAll();
             ViewBag.PageNo = pageIndex;
-            ViewBag.TotalPage = count/2==0?count:count+1;
+            ViewBag.TotalPage = count/2==0?count:count+1;           
             return View(allArticle);
         }
         /// <summary>
@@ -27,6 +27,7 @@ namespace Sky.Blog.Controllers
         public ActionResult Create()
         {
             var p = new Article();
+            ViewBag.Categories = Category.FindAll();
             return View("Edit", p);
         }
         /// <summary>
@@ -55,7 +56,7 @@ namespace Sky.Blog.Controllers
             {
                 model.CreateTime=DateTime.Now;
             }
-            model.Update();
+            model.Save();
             return RedirectToAction("List");
         }
     }

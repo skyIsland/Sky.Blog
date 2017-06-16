@@ -1,4 +1,4 @@
-﻿using Beginner.Blog.Core;
+﻿using Sky.Blog.Core;
 
 namespace Sky.Blog.Core.Messaging
 {

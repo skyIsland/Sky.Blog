@@ -1,6 +1,4 @@
-﻿using Beginner.Blog.Core.Engines;
-
-namespace Sky.Blog.Core.Engines
+﻿namespace Sky.Blog.Core.Engines
 {
     /// <summary>
     /// DI容器引擎工厂类

@@ -260,6 +260,8 @@
     <Compile Include="Configs\ConfigHelper.cs" />
     <Compile Include="Configs\Models\Setting.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Core\Authentication\AspFormsAuthentication.cs" />
@@ -312,6 +314,8 @@
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Upload\WangEditor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

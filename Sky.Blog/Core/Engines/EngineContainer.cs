@@ -1,12 +1,9 @@
-﻿using Autofac;
-using Autofac.Core.Lifetime;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Sky.Blog.Core.Engines;
+using Autofac;
+using Autofac.Core.Lifetime;
 
-namespace Beginner.Blog.Core.Engines
+namespace Sky.Blog.Core.Engines
 {
     public class EngineContainer : IEngine
     {

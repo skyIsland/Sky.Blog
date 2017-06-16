@@ -72,6 +72,10 @@ namespace Sky.Models
         #endregion
 
         #region 扩展属性
+        /// <summary>
+        /// 分类下所有的文章
+        /// </summary>
+        public List<Article> Articles => Article.FindAll(Article._.IsDel == 0&Article._.CategoryId==this.ID);
         #endregion
 
         #region 扩展查询

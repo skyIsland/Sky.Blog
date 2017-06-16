@@ -26,8 +26,8 @@
                         {
                             foreach (var item in categories)
                             {
-                                var selected = item.ID == int.Parse(ViewBag.CagegotyId) ? "selected" : "";
-                                <option value="@item.ID" @selected>@item.CategoryName</option>
+                                //var selected = item.ID == int.Parse(ViewBag.CagegotyId) ? "selected" : "";
+                                <option value="@item.ID" @*@selected*@>@item.CategoryName</option>
                             }
                         }
                     </select>
