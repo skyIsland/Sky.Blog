@@ -1,9 +1,9 @@
 ﻿{
-  "Host": "smtp.126.com",
+  "Host": "smtp.qq.com",
   "Port": 25,
-  "Form": "beginner2016@126.com",
-  "UserName": "beginner2016",
-  "Password": "",
+  "Form": "ismatch@qq.com",
+  "UserName": "傻大蒙",
+  "Password": "qq123456.",
   "EnableSsl": false,
   "EnablePwdAuthentication": false
 }

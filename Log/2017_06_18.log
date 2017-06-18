@@ -1,0 +1,982 @@
+﻿#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-4-131421957195409993
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,894M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+01:56:37.418 31 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+01:56:37.461 31 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+01:56:37.461 31 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+01:56:37.461 31 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+01:56:37.461 31 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+01:56:37.461 31 W - [Conn]GetSchema("MetaDataCollections")
+01:56:37.635 31 W - [Conn]GetSchema("Databases", "Sky_Blog")
+01:56:37.749 31 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+01:56:37.774 31 W - [Conn]GetSchema("Tables")
+01:56:37.831 31 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+01:56:37.853 31 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+01:56:37.956 31 W - 创建表：Gxu_SysUsers(系统管理员信息)
+01:56:37.965 31 W - [Conn]GetSchema("ReservedWords")
+01:56:38.052 31 W - [Conn]GetSchema("DataTypes")
+01:56:38.121 31 W - Create Table Gxu_SysUsers(
+	ID int IDENTITY(1,1) Primary Key,
+	LoginName nvarchar(50) NULL,
+	PassWord nvarchar(50) NULL,
+	RealName nvarchar(50) NULL,
+	LoginCount int NULL,
+	LastLoginTime datetime NULL,
+	LastLoginIP nvarchar(50) NULL
+)
+01:56:38.255 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'系统管理员信息' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers'
+01:56:38.380 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'登录账号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'LoginName'
+01:56:38.409 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'登录密码' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'PassWord'
+01:56:38.453 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'RealName'
+01:56:38.492 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'登陆次数' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'LoginCount'
+01:56:38.624 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'最后登录时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'LastLoginTime'
+01:56:38.650 31 W - EXEC dbo.sp_addextendedproperty @name=N'MS_Description', @value=N'最后登录IP' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Gxu_SysUsers', @level2type=N'COLUMN',@level2name=N'LastLoginIP'
+01:56:38.751 31 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+01:56:38.774 31 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+01:56:39.203 31 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+01:56:39.203 31 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+01:56:39.204 31 W - Conn待检查表架构的实体个数：3
+01:56:39.204 31 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+01:56:39.274 31 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+01:56:39.301 31 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+01:56:39.338 31 W - [Conn]GetSchema("Columns")
+01:56:39.384 31 W - [Conn]GetSchema("Indexes")
+01:56:39.518 31 W - [Conn]GetSchema("IndexColumns")
+01:56:39.581 31 W - 检查连接[Conn/SqlServer]的数据库架构耗时819ms
+01:56:39.581 31 W - 开始初始化SysUsers[系统管理员信息]数据……
+01:56:39.643 31 W - SET NOCOUNT ON;Insert Into Gxu_SysUsers(LoginName, PassWord, RealName, LoginCount, LastLoginTime, LastLoginIP) Values(N'admin', N'E10ADC3949BA59ABBE56E057F20F883E', N'超级管理员', 0, {ts'2017-06-18 01:56:39'}, N'');Select SCOPE_IDENTITY()
+01:56:39.956 31 W - 完成初始化SysUsers[系统管理员信息]数据！
+01:56:39.987 34 Y 27 Select * From Gxu_SysUsers Order By ID Desc
+01:56:49.986 40 N T 实体缓存<SysUsers            > 总次数      1
+01:58:09.057 34 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+01:58:09.088 27 Y 39 Select * From Gxu_SysUsers Order By ID Desc
+01:59:29.687 27 Y 71 Select * From Gxu_SysUsers Order By ID Desc
+02:01:02.591 38 Y 82 Select * From Gxu_SysUsers Order By ID Desc
+02:01:51.582 38 Y 82 SQL耗时较长，建议优化 48,988毫秒 Select * From Gxu_SysUsers Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-5-131421963333660868
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 7,067M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+02:06:47.542 38 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+02:06:47.557 38 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+02:06:47.557 38 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+02:06:47.557 38 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+02:06:47.557 38 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+02:06:47.557 38 W - [Conn]GetSchema("MetaDataCollections")
+02:06:47.573 38 W - [Conn]GetSchema("Databases", "Sky_Blog")
+02:06:47.620 38 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:06:47.635 38 W - [Conn]GetSchema("Tables")
+02:06:47.678 38 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:06:47.702 38 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:06:47.720 38 W - [Conn]GetSchema("Columns")
+02:06:47.753 38 W - [Conn]GetSchema("Indexes")
+02:06:47.770 38 W - [Conn]GetSchema("IndexColumns")
+02:06:47.792 38 W - [Conn]GetSchema("DataTypes")
+02:06:47.883 38 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:06:47.904 38 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+02:06:48.120 38 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+02:06:48.120 38 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+02:06:48.120 38 W - Conn待检查表架构的实体个数：3
+02:06:48.120 38 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:06:48.135 38 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:06:48.167 38 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:06:48.182 38 W - 检查连接[Conn/SqlServer]的数据库架构耗时286ms
+02:06:48.198 17 Y 37 [Conn]GetSchema("ReservedWords")
+02:06:48.213 17 Y 37 Select * From Gxu_SysUsers Order By ID Desc
+02:06:59.468 25 N T 实体缓存<SysUsers            > 总次数      2，命中      1（50.00%）
+02:07:02.660 17 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:07:02.684 17 W - Select Count(*) From Sky_Article Where IsDel=0
+02:07:02.749 17 W - Select * From Sky_Category Order By ID Desc
+02:07:07.703 17 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:07:07.743 38 Y 59 Select * From Sky_Category Order By ID Desc
+02:07:23.527 17 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:07:23.542 17 W - Select Count(*) From Sky_Article Where IsDel=0
+02:07:23.574 17 W - Select * From Sky_Category Order By ID Desc
+02:07:37.896 17 W - Select * From (Select *, row_number() over(Order By IsTop,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+02:08:01.416 38 W - Select * From (Select *, row_number() over(Order By IsTop,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+02:08:21.033 19 W - Select * From (Select *, row_number() over(Order By IsTop,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+02:08:27.565 38 W - Select * From (Select *, row_number() over(Order By IsTop,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-6-131421965711696647
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 7,036M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+02:09:37.127 39 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+02:09:37.140 39 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+02:09:37.140 39 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+02:09:37.140 39 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+02:09:37.140 39 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+02:09:37.140 39 W - [Conn]GetSchema("MetaDataCollections")
+02:09:37.148 39 W - [Conn]GetSchema("ReservedWords")
+02:09:37.161 39 W - [Conn]GetSchema("Databases", "Sky_Blog")
+02:09:37.171 39 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:09:37.172 39 W - [Conn]GetSchema("Tables")
+02:09:37.177 39 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:09:37.181 39 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:09:37.185 39 W - [Conn]GetSchema("Columns")
+02:09:37.191 39 W - [Conn]GetSchema("Indexes")
+02:09:37.193 39 W - [Conn]GetSchema("IndexColumns")
+02:09:37.201 39 W - [Conn]GetSchema("DataTypes")
+02:09:37.243 39 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+02:09:37.417 39 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+02:09:37.417 39 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+02:09:37.418 39 W - Conn待检查表架构的实体个数：3
+02:09:37.418 39 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:09:37.418 39 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:09:37.423 39 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:09:37.427 39 W - 检查连接[Conn/SqlServer]的数据库架构耗时184ms
+02:09:37.433 39 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+02:10:36.454 10 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:10:36.457 10 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-7-131421978562793876
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,933M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+02:31:04.154  4 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+02:31:04.174  4 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+02:31:04.174  4 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+02:31:04.174  4 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+02:31:04.174  4 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+02:31:04.174  4 W - [Conn]GetSchema("MetaDataCollections")
+02:31:04.192  4 W - [Conn]GetSchema("ReservedWords")
+02:31:04.214  4 W - [Conn]GetSchema("Databases", "Sky_Blog")
+02:31:04.243  4 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:31:04.272  4 W - [Conn]GetSchema("Tables")
+02:31:04.290  4 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:31:04.307  4 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:31:04.323  4 W - [Conn]GetSchema("Columns")
+02:31:04.358  4 W - [Conn]GetSchema("Indexes")
+02:31:04.377  4 W - [Conn]GetSchema("IndexColumns")
+02:31:04.398  4 W - [Conn]GetSchema("DataTypes")
+02:31:04.485  4 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+02:31:04.662  4 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+02:31:04.662  4 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+02:31:04.663  4 W - Conn待检查表架构的实体个数：3
+02:31:04.663  4 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:31:04.677  4 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:31:04.705  4 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:31:04.724  4 W - 检查连接[Conn/SqlServer]的数据库架构耗时239ms
+02:31:04.731  4 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:31:04.784  4 W - Select Count(*) From Sky_Article Where IsDel=0
+02:31:04.837  4 W - Select * From Sky_Category Order By ID Desc
+02:31:06.852  4 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:31:06.908  3 Y 7 Select * From Sky_Category Order By ID Desc
+02:31:11.709  4 W - Select * From Sky_Article Where ID=3
+02:31:11.786  4 W - Select * From Sky_Category Order By ID Desc
+02:31:16.909 20 N T 实体缓存<Category            > 总次数      3，命中      2（66.67%）
+02:31:36.171  4 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:31:36.190  4 W - Select Count(*) From Sky_Article Where IsDel=0
+02:31:36.214  4 W - Select * From Sky_Category Order By ID Desc
+02:31:56.258  4 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Category) XCode_T1 Where rowNumber Between 1 And 10
+02:33:19.802  4 W - Select * From Sky_Category Where ID=1
+02:33:21.684  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:33:21.686  4 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:34:25.526  3 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:34:25.540  3 W - Select Count(*) From Sky_Article Where IsDel=0
+02:34:25.551  3 W - Select * From Sky_Category Order By ID Desc
+02:34:25.565 37 Y 147 Select * From Sky_Category Order By ID Desc
+02:35:36.623  3 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:35:36.641  3 W - Select Count(*) From Sky_Article Where IsDel=0
+02:35:36.652  3 W - Select * From Sky_Category Order By ID Desc
+02:35:41.443 37 Y 188 Select * From Sky_Category Order By ID Desc
+02:35:43.843  3 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:35:43.862 37 Y 210 Select * From Sky_Article Order By ID Desc
+02:35:43.911  3 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:35:43.948  3 W - Update Sky_Article Set Hits=3 Where ID=3
+02:35:44.009 37 Y 212 Select * From Sky_Article Order By ID Desc
+02:35:44.405 37 Y 213 Select * From SKy_Comment Order By ID Desc
+02:36:20.349 37 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'77', N'1434787335@qq.com', N'<p>77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777</p>', 3, {ts'2017-06-18 02:36:20'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:36:20.381  3 Y 235 Select * From SKy_Comment Order By ID Desc
+02:41:16.912 20 N T 实体缓存<Category            > 总次数     14，命中     11（78.57%）
+02:41:16.912 20 N T 实体缓存<Article             > 总次数      1
+02:41:16.912 20 N T 实体缓存<Comment             > 总次数      1
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-8-131421989407392509
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 7,133M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+02:49:08.720  3 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+02:49:08.736  3 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+02:49:08.736  3 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+02:49:08.736  3 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+02:49:08.736  3 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+02:49:08.736  3 W - [Conn]GetSchema("MetaDataCollections")
+02:49:08.767  3 W - [Conn]GetSchema("ReservedWords")
+02:49:08.783  3 W - [Conn]GetSchema("Databases", "Sky_Blog")
+02:49:08.829  3 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:49:08.861  3 W - [Conn]GetSchema("Tables")
+02:49:08.876  3 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:49:08.954  3 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:49:08.970  3 W - [Conn]GetSchema("Columns")
+02:49:09.001  3 W - [Conn]GetSchema("Indexes")
+02:49:09.033  3 W - [Conn]GetSchema("IndexColumns")
+02:49:09.048  3 W - [Conn]GetSchema("DataTypes")
+02:49:09.142  3 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+02:49:09.314  3 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+02:49:09.314  3 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+02:49:09.314  3 W - Conn待检查表架构的实体个数：3
+02:49:09.314  3 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+02:49:09.330  3 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+02:49:09.361  3 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+02:49:09.376  3 W - 检查连接[Conn/SqlServer]的数据库架构耗时228ms
+02:49:09.376  3 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:49:09.408  3 W - Select Count(*) From Sky_Article Where IsDel=0
+02:49:09.470  3 W - Select * From Sky_Category Order By ID Desc
+02:49:11.237  3 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:49:11.253 17 Y 7 Select * From Sky_Category Order By ID Desc
+02:49:21.259 25 N T 实体缓存<Category            > 总次数      3，命中      2（66.67%）
+02:50:13.379  3 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:50:13.410 17 Y 49 Select * From Gxu_SysUsers Order By ID Desc
+02:50:16.496 21 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+02:50:16.523 21 W - Select Count(*) From Sky_Article Where IsDel=0
+02:50:16.536 21 W - Select * From Sky_Category Order By ID Desc
+02:50:16.549  3 Y 61 Select * From Sky_Category Order By ID Desc
+02:50:29.942  3 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:50:29.959  3 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:50:29.974  3 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+02:50:34.745  3 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:50:34.769  3 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:50:34.781  3 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:50:34.792  3 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:50:34.813  3 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:50:34.825  3 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:52:16.200 11 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:52:16.215 11 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:52:16.237 11 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地' Order By ID Desc
+02:52:16.252 11 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=1) XCode_T1 Where rowNumber Between 1 And 5
+02:52:16.270 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:52:16.283 11 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:52:16.308 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:52:16.319 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:52:16.330 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:52:16.341 11 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:52:18.497 36 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:52:18.522 36 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:52:18.534 36 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地1' Order By ID Desc
+02:52:18.549 36 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=2) XCode_T1 Where rowNumber Between 1 And 5
+02:52:18.564 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:52:18.596 36 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:52:18.609 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:52:18.620 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:52:18.643 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:52:18.653 36 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:52:19.951 11 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:52:19.964 11 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:52:19.978 11 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地2' Order By ID Desc
+02:52:20.013 11 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=3) XCode_T1 Where rowNumber Between 1 And 5
+02:52:20.033 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:52:20.045 11 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:52:20.057 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:52:20.083 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:52:20.094 11 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:52:20.105 11 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:52:20.981 36 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:52:20.994 36 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:52:21.018 36 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地3' Order By ID Desc
+02:52:21.032 36 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=4) XCode_T1 Where rowNumber Between 1 And 5
+02:52:21.047 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:52:21.060 36 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:52:21.085 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:52:21.097 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:52:21.109 36 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:52:21.120 36 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:52:23.068 11 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:52:23.085 36 Y 183 Select * From Sky_Article Order By ID Desc
+02:52:23.135 11 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:52:23.170 11 W - Update Sky_Article Set Hits=4 Where ID=3
+02:52:23.209 36 Y 185 Select * From Sky_Article Order By ID Desc
+02:52:23.259 11 W 186 Select * From SKy_Comment Order By ID Desc
+02:52:23.358 34 Y 188 Select * From Sky_Category Order By ID Desc
+02:52:46.929 32 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'傻大蒙', N'1434787335@qq.com', N'&nbsp;', 3, {ts'2017-06-18 02:52:46'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:52:46.961 11 Y 210 Select * From SKy_Comment Order By ID Desc
+02:52:47.076 32 W - 读取配置文件出错，请检查配置文件是否存在！
+02:52:47.077 32 W - 配置出错，请检查配置内容！文件路径：F:\Project\Blog\Sky.Blog\Sky.Blog\Home
+02:54:31.151 21 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'sss', N'1434787335@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:54:31'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:54:40.258 21 W - SQL耗时较长，建议优化 9,104毫秒 SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'sss', N'1434787335@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:54:31'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:55:10.463 23 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss', N'ismatch@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅</span><span>鹅饿饿鹅</span><span>鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅</span><span>鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:10'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:55:35.295 23 W - SQL耗时较长，建议优化 24,831毫秒 SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss', N'ismatch@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅</span><span>鹅饿饿鹅</span><span>鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅</span><span>鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:10'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:55:35.882 15 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss', N'ismatch@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:35'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:55:37.978 15 W - SQL耗时较长，建议优化 2,095毫秒 SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss', N'ismatch@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:35'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:55:51.128 15 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss ', N'sss@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:51'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:56:26.046 15 W - SQL耗时较长，建议优化 34,917毫秒 SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss ', N'sss@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span></p>', 3, {ts'2017-06-18 02:55:51'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:56:26.568 23 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'ss ', N'sss@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span></p>', 3, {ts'2017-06-18 02:56:26'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:56:26.606 15 Y 280 Select * From SKy_Comment Order By ID Desc
+02:56:26.645 23 W - 读取配置文件出错，请检查配置文件是否存在！
+02:56:26.645 23 W - 配置出错，请检查配置内容！文件路径：F:\Project\Blog\Sky.Blog\Sky.Blog\Home
+02:56:47.986 15 W - SET NOCOUNT ON;Insert Into SKy_Comment(NickName, Email, CommentText, ArticleId, CreateTime, CommentIp, [State]) Values(N'dd', N'ismatch@qq.com', N'<p>&nbsp;<span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span><span>鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿</span><span>鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿饿鹅鹅鹅饿</span></p>', 3, {ts'2017-06-18 02:56:47'}, N'::1', 0);Select SCOPE_IDENTITY()
+02:56:48.021 21 Y 310 Select * From SKy_Comment Order By ID Desc
+02:56:48.064 15 W - 读取配置文件出错，请检查配置文件是否存在！
+02:56:48.064 15 W - 配置出错，请检查配置内容！文件路径：F:\Project\Blog\Sky.Blog\Sky.Blog\Home
+02:57:38.024 21 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:57:38.040 21 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:57:38.053 21 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地3' Order By ID Desc
+02:57:38.066 21 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=4) XCode_T1 Where rowNumber Between 1 And 5
+02:57:38.093 21 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:57:38.104 21 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:57:38.118 21 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:57:38.132 21 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:57:38.160 21 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:57:38.172 21 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:57:39.289 23 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:57:39.304 23 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:57:39.319 23 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地3' Order By ID Desc
+02:57:39.332 23 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=4) XCode_T1 Where rowNumber Between 1 And 5
+02:57:39.344 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:57:39.374 23 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:57:39.390 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:57:39.404 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:57:39.441 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:57:39.456 23 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:57:40.202 23 W - Select * From Sky_Category Order By IsTop desc,Sort
+02:57:40.215 23 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+02:57:40.227 23 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地3' Order By ID Desc
+02:57:40.249 23 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=4) XCode_T1 Where rowNumber Between 1 And 5
+02:57:40.261 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+02:57:40.275 23 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+02:57:40.287 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+02:57:40.301 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+02:57:40.326 23 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+02:57:40.337 23 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+02:57:41.658 21 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:57:41.672 21 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:57:41.693 21 W - Update Sky_Article Set Hits=5 Where ID=3
+02:57:41.705 23 Y 400 Select * From Sky_Article Order By ID Desc
+02:57:41.723  3 Y 402 Select * From Sky_Article Order By ID Desc
+02:57:41.735 23 Y 403 Select * From Sky_Category Order By ID Desc
+02:58:05.375 21 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:58:05.391 21 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:58:05.419 21 W - Update Sky_Article Set Hits=6 Where ID=3
+02:58:05.457 23 Y 425 Select * From Sky_Article Order By ID Desc
+02:58:05.464  3 Y 426 Select * From SKy_Comment Order By ID Desc
+02:58:12.314 21 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:58:12.329 21 W - Update Sky_Article Set Hits=7 Where ID=3
+02:58:12.409 23 Y 448 Select * From Sky_Article Order By ID Desc
+02:58:57.414 21 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+02:59:11.855 21 W - Select * From SKy_Comment Where ID=3 Order By CreateTime desc
+02:59:11.881 21 W - Update Sky_Article Set Hits=8 Where ID=3
+02:59:11.906 23 Y 469 Select * From Sky_Article Order By ID Desc
+02:59:11.908  3 Y 470 Select * From SKy_Comment Order By ID Desc
+02:59:11.942 19 Y 472 Select * From Sky_Category Order By ID Desc
+02:59:14.798  3 Y 470 SQL耗时较长，建议优化 2,889毫秒 Select * From SKy_Comment Order By ID Desc
+02:59:14.875 19 Y 472 SQL耗时较长，建议优化 2,933毫秒 Select * From Sky_Category Order By ID Desc
+02:59:21.263 25 N T 实体缓存<Category            > 总次数     16，命中     11（68.75%）
+02:59:21.263 25 N T 实体缓存<SysUsers            > 总次数      1
+02:59:21.263 25 N T 实体缓存<Article             > 总次数      5，命中      3（60.00%）
+02:59:21.263 25 N T 实体缓存<Comment             > 总次数      5，命中      2（40.00%）
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-9-131421996923304786
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,825M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:01:40.485 19 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:01:40.500 19 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:01:40.500 19 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:01:40.500 19 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:01:40.500 19 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:01:40.500 19 W - [Conn]GetSchema("MetaDataCollections")
+03:01:40.520 19 W - [Conn]GetSchema("ReservedWords")
+03:01:40.546 19 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:01:40.580 19 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:01:40.598 19 W - [Conn]GetSchema("Tables")
+03:01:40.629 19 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:01:40.669 19 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:01:40.685 19 W - [Conn]GetSchema("Columns")
+03:01:40.706 19 W - [Conn]GetSchema("Indexes")
+03:01:40.732 19 W - [Conn]GetSchema("IndexColumns")
+03:01:40.754 19 W - [Conn]GetSchema("DataTypes")
+03:01:40.845 19 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:01:41.030 19 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:01:41.030 19 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:01:41.031 19 W - Conn待检查表架构的实体个数：3
+03:01:41.031 19 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:01:41.054 19 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:01:41.074 19 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:01:41.120 19 W - 检查连接[Conn/SqlServer]的数据库架构耗时274ms
+03:01:41.126 19 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+03:01:41.160 19 W - Select Count(*) From Sky_Article Where IsDel=0
+03:01:41.198 19 W - Select * From Sky_Category Order By ID Desc
+03:01:43.142 19 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+03:01:43.194 16 Y 7 Select * From Sky_Category Order By ID Desc
+03:01:53.218 31 N T 实体缓存<Category            > 总次数      3，命中      2（66.67%）
+03:02:03.463 33 W - select object_name(id) as objname,rows from sysindexes where indid in (0,1) and status in (0,2066)
+03:02:03.480 19 Y 29 Select * From Sky_Article Order By ID Desc
+03:02:03.531 33 W - Select * From SKy_Comment Where ArticleId=3 Order By CreateTime desc
+03:02:03.668 33 W - Update Sky_Article Set Hits=9 Where ID=3
+03:02:03.696 19 Y 31 Select * From Sky_Article Order By ID Desc
+03:02:08.391 19 Y 32 Select * From SKy_Comment Order By ID Desc
+03:02:35.217 29 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort) as rowNumber From Sky_Article Where IsDel=0) XCode_T1 Where rowNumber Between 1 And 15
+03:02:35.229 29 W - Select Count(*) From Sky_Article Where IsDel=0
+03:02:35.248 29 W - Select * From Sky_Category Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-11-131421999054746508
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,892M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:05:13.220 16 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:05:13.236 16 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:05:13.236 16 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:05:13.236 16 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:05:13.236 16 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:05:13.236 16 W - [Conn]GetSchema("MetaDataCollections")
+03:05:13.264 16 W - [Conn]GetSchema("ReservedWords")
+03:05:13.281 16 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:05:13.319 16 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:05:13.352 16 W - [Conn]GetSchema("Tables")
+03:05:13.373 16 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:05:13.393 16 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:05:13.413 16 W - [Conn]GetSchema("Columns")
+03:05:13.451 16 W - [Conn]GetSchema("Indexes")
+03:05:13.468 16 W - [Conn]GetSchema("IndexColumns")
+03:05:13.508 16 W - [Conn]GetSchema("DataTypes")
+03:05:13.587 16 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:05:13.795 16 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:05:13.795 16 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:05:13.795 16 W - Conn待检查表架构的实体个数：3
+03:05:13.795 16 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:05:13.818 16 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:05:13.837 16 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:05:13.856 16 W - 检查连接[Conn/SqlServer]的数据库架构耗时269ms
+03:05:13.859 16 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:05:13.955 16 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:05:13.979 16 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:05:15.586 16 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:05:15.609 16 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:05:15.621 16 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:05:15.634 16 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:05:15.647 16 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:05:15.678 16 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:05:21.055 33 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:05:21.075 33 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:05:21.092 33 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And Title Like N'%77%') XCode_T1 Where rowNumber Between 1 And 5
+03:05:21.214 33 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:05:21.231 33 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:05:21.246 33 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:05:21.262 33 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:05:21.305 33 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:05:21.324 33 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-12-131422005711743573
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,772M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:16:23.175 38 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:16:23.191 38 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:16:23.191 38 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:16:23.191 38 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:16:23.191 38 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:16:23.192 38 W - [Conn]GetSchema("MetaDataCollections")
+03:16:23.201 38 W - [Conn]GetSchema("ReservedWords")
+03:16:23.217 38 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:16:23.229 38 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:16:23.231 38 W - [Conn]GetSchema("Tables")
+03:16:23.237 38 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:16:23.244 38 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:16:23.248 38 W - [Conn]GetSchema("Columns")
+03:16:23.254 38 W - [Conn]GetSchema("Indexes")
+03:16:23.257 38 W - [Conn]GetSchema("IndexColumns")
+03:16:23.270 38 W - [Conn]GetSchema("DataTypes")
+03:16:23.322 38 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:16:23.533 38 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:16:23.533 38 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:16:23.533 38 W - Conn待检查表架构的实体个数：3
+03:16:23.533 38 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:16:23.534 38 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:16:23.539 38 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:16:23.544 38 W - 检查连接[Conn/SqlServer]的数据库架构耗时222ms
+03:16:23.548 38 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:16:23.598 38 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:16:23.608 38 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:16:37.748 41 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:16:37.750 41 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:16:37.751 41 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:16:53.473 38 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:16:53.474 38 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:16:53.475 38 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:17:51.618 20 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:17:51.619 20 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:17:51.620 20 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:20:15.872 20 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:20:15.947 20 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:20:15.976 20 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-13-131422010020252487
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,763M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:23:30.543 20 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:23:30.562 20 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:23:30.562 20 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:23:30.562 20 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:23:30.562 20 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:23:30.562 20 W - [Conn]GetSchema("MetaDataCollections")
+03:23:30.581 20 W - [Conn]GetSchema("ReservedWords")
+03:23:30.595 20 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:23:30.628 20 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:23:30.659 20 W - [Conn]GetSchema("Tables")
+03:23:30.677 20 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:23:30.695 20 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:23:30.711 20 W - [Conn]GetSchema("Columns")
+03:23:30.752 20 W - [Conn]GetSchema("Indexes")
+03:23:30.770 20 W - [Conn]GetSchema("IndexColumns")
+03:23:30.809 20 W - [Conn]GetSchema("DataTypes")
+03:23:30.886 20 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:23:31.081 20 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:23:31.082 20 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:23:31.082 20 W - Conn待检查表架构的实体个数：3
+03:23:31.082 20 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:23:31.100 20 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:23:31.134 20 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:23:31.160 20 W - 检查连接[Conn/SqlServer]的数据库架构耗时273ms
+03:23:31.165 20 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:23:31.304 20 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:23:31.346 20 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:23:33.066 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:23:33.090 20 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:23:33.101 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:23:33.130 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:23:33.153 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:23:33.216 20 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:24:19.717 15 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:24:19.732 15 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:24:19.751 15 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:24:19.764 15 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:24:19.787 15 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:24:19.798 15 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:24:19.810 15 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:24:19.822 15 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:24:19.847 15 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:24:22.709 27 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:24:22.738 27 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:24:22.750 27 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:24:22.761 27 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:24:22.772 27 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:24:22.796 27 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:24:22.807 27 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:24:22.818 27 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:24:22.831 27 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:24:35.109 20 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:24:35.129 20 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:24:35.142 20 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:24:35.154 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:24:35.165 20 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:24:35.191 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:24:35.203 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:24:35.214 20 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:24:35.225 20 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-14-131422014437634955
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 7,096M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:30:52.099 26 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:30:52.114 26 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:30:52.114 26 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:30:52.114 26 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:30:52.114 26 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:30:52.114 26 W - [Conn]GetSchema("MetaDataCollections")
+03:30:52.126 26 W - [Conn]GetSchema("ReservedWords")
+03:30:52.141 26 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:30:52.152 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:30:52.153 26 W - [Conn]GetSchema("Tables")
+03:30:52.158 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:30:52.165 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:30:52.169 26 W - [Conn]GetSchema("Columns")
+03:30:52.178 26 W - [Conn]GetSchema("Indexes")
+03:30:52.180 26 W - [Conn]GetSchema("IndexColumns")
+03:30:52.191 26 W - [Conn]GetSchema("DataTypes")
+03:30:52.234 26 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:30:52.404 26 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:30:52.404 26 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:30:52.404 26 W - Conn待检查表架构的实体个数：3
+03:30:52.404 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:30:52.405 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:30:52.410 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:30:52.415 26 W - 检查连接[Conn/SqlServer]的数据库架构耗时180ms
+03:30:52.419 26 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:30:52.475 26 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:30:52.489 26 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:30:53.992 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:30:53.993 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:30:53.994 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:30:53.994 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:30:53.995 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:30:53.995 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-15-131422015426186545
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,826M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:32:30.869 26 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:32:30.891 26 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:32:30.891 26 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:32:30.891 26 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:32:30.891 26 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:32:30.891 26 W - [Conn]GetSchema("MetaDataCollections")
+03:32:30.916 26 W - [Conn]GetSchema("ReservedWords")
+03:32:30.934 26 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:32:30.968 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:32:30.985 26 W - [Conn]GetSchema("Tables")
+03:32:31.016 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:32:31.035 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:32:31.051 26 W - [Conn]GetSchema("Columns")
+03:32:31.072 26 W - [Conn]GetSchema("Indexes")
+03:32:31.104 26 W - [Conn]GetSchema("IndexColumns")
+03:32:31.133 26 W - [Conn]GetSchema("DataTypes")
+03:32:31.226 26 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:32:31.433 26 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:32:31.433 26 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:32:31.434 26 W - Conn待检查表架构的实体个数：3
+03:32:31.434 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:32:31.470 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:32:31.497 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:32:31.541 26 W - 检查连接[Conn/SqlServer]的数据库架构耗时315ms
+03:32:31.548 26 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:32:31.647 26 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:32:31.669 26 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:32:33.419 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:32:33.451 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:32:33.463 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:32:33.475 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:32:33.486 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:32:33.496 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-16-131422016510655757
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,764M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:34:20.675 26 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:34:20.688 26 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:34:20.688 26 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:34:20.689 26 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:34:20.689 26 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:34:20.689 26 W - [Conn]GetSchema("MetaDataCollections")
+03:34:20.712 26 W - [Conn]GetSchema("ReservedWords")
+03:34:20.730 26 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:34:20.770 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:34:20.803 26 W - [Conn]GetSchema("Tables")
+03:34:20.837 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:34:20.855 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:34:21.028 26 W - [Conn]GetSchema("Columns")
+03:34:21.125 26 W - [Conn]GetSchema("Indexes")
+03:34:21.378 26 W - [Conn]GetSchema("IndexColumns")
+03:34:21.434 26 W - [Conn]GetSchema("DataTypes")
+03:34:21.569 26 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:34:21.825 26 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:34:21.825 26 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:34:21.826 26 W - Conn待检查表架构的实体个数：3
+03:34:21.826 26 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:34:21.881 26 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:34:21.908 26 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:34:21.944 26 W - 检查连接[Conn/SqlServer]的数据库架构耗时373ms
+03:34:21.948 26 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:34:22.032 26 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:34:22.053 26 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:34:23.867 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:34:23.917 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:34:23.929 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:34:23.941 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:34:23.951 26 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:34:23.976 26 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+
+#Software: iisexpress
+#ProcessID: 1608
+#AppDomain: /LM/W3SVC/3/ROOT-17-131422021835757269
+#FileName: C:\Program Files (x86)\IIS Express\iisexpress.exe
+#BaseDirectory: F:\Project\Blog\Sky.Blog\Sky.Blog\
+#CurrentDirectory: C:\Program Files (x86)\IIS Express
+#CommandLine: /config:"F:\Project\Blog\Sky.Blog\.vs\config\applicationhost.config" /site:"Sky.Blog" /apppool:"Clr4IntegratedAppPool"
+#ApplicationType: Web
+#CLR: 4.0.30319.42000
+#OS: Windows 10.0.14393.0 x64, 傻大蒙/傻大蒙
+#Memory: 6,746M/12,222M
+#CPU: 4
+#Date: 2017-06-18
+#字段: 时间 线程ID 线程池Y网页W普通N 线程名 消息内容
+#Fields: Time ThreadID IsPoolThread ThreadName Message
+03:43:11.754 31 W - NewLife.Core v6.3.2017.0526 Build 2017-06-13 00:09:50
+03:43:11.769 31 W - 新生命X组件核心库 ©2002-2017 新生命开发团队 http://git.newlifex.com/NewLife/X
+03:43:11.769 31 W - XCode v9.4.2017.0207 Build 2017-03-27 11:06:14
+03:43:11.769 31 W - 新生命数据映射框架 ©2002-2016 新生命开发团队 http://www.NewLifeX.com
+03:43:11.769 31 W - XCode.Negative.NoDelete设置为True，不会删除数据表多余字段
+03:43:11.769 31 W - [Conn]GetSchema("MetaDataCollections")
+03:43:11.806 31 W - [Conn]GetSchema("ReservedWords")
+03:43:11.821 31 W - [Conn]GetSchema("Databases", "Sky_Blog")
+03:43:11.867 31 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:43:11.886 31 W - [Conn]GetSchema("Tables")
+03:43:11.915 31 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:43:11.932 31 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:43:11.958 31 W - [Conn]GetSchema("Columns")
+03:43:11.977 31 W - [Conn]GetSchema("Indexes")
+03:43:11.993 31 W - [Conn]GetSchema("IndexColumns")
+03:43:12.028 31 W - [Conn]GetSchema("DataTypes")
+03:43:12.124 31 W - 开始检查连接[Conn/SqlServer]的数据库架构……
+03:43:12.335 31 W - [Conn]的所有实体类（4个）：Article,Category,Comment,SysUsers
+03:43:12.335 31 W - [Conn]需要检查架构的实体类（4个）：Article,Category,Comment,SysUsers
+03:43:12.335 31 W - Conn待检查表架构的实体个数：3
+03:43:12.335 31 W - select b.name n, a.value v from sys.extended_properties a inner join sysobjects b on a.major_id=b.id and a.minor_id=0 and a.name = 'MS_Description'
+03:43:12.351 31 W - SELECT 表名=d.name,字段序号=a.colorder,字段名=a.name,标识=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then Convert(Bit,1) else Convert(Bit,0) end,主键=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and name in (SELECT name FROM sysindexes WHERE id = a.id AND indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) then Convert(Bit,1) else Convert(Bit,0) end,类型=b.name,占用字节数=a.length,长度=COLUMNPROPERTY(a.id,a.name,'PRECISION'),小数位数=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),允许空=case when a.isnullable=1 then Convert(Bit,1)else Convert(Bit,0) end,默认值=isnull(e.text,''),字段说明=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xtype=b.xusertype inner join sysobjects d on a.id=d.id  and d.xtype='U' left join syscomments e on a.cdefault=e.id left join sys.extended_properties g on a.id=g.major_id and a.colid=g.minor_id and g.name = 'MS_Description'  order by a.id,a.colorder
+03:43:12.389 31 W - select ind.* from sys.indexes ind inner join sys.objects obj on ind.object_id = obj.object_id where obj.type='u'
+03:43:12.408 31 W - 检查连接[Conn/SqlServer]的数据库架构耗时283ms
+03:43:12.412 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:43:12.487 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:43:12.509 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:43:14.226 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:43:14.249 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:43:14.273 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:43:14.283 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:43:14.314 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:43:14.341 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:43:20.983 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:43:21.008 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:43:21.019 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:43:21.035 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:43:21.048 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:43:21.082 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:43:21.093 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:43:21.109 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:43:21.135 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:43:24.679 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:43:24.693 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:43:24.708 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:43:24.735 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:43:24.745 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:43:24.757 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:43:24.768 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:43:24.791 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:43:24.801 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:31.112  9 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:31.124  9 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:31.137  9 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:44:31.161  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:31.172  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:31.184  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:31.196  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:31.219  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:31.232  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:34.640  4 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:34.653  4 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:34.666  4 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And Title Like N'%   %') XCode_T1 Where rowNumber Between 1 And 5
+03:44:34.681  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:34.708  4 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:34.721  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:34.735  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:34.746  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:34.769  4 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:45.333  4 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:45.344  4 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:45.356  4 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And Title Like N'%咯咯咯咯咯ggggggggggg%') XCode_T1 Where rowNumber Between 1 And 5
+03:44:45.371  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:45.396  4 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:45.407  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:45.422  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:45.434  4 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:45.457  4 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:47.161 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:47.188 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:47.202 31 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地' Order By ID Desc
+03:44:47.217 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=1) XCode_T1 Where rowNumber Between 1 And 5
+03:44:47.231 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:47.242 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:47.269 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:47.281 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:47.293 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:47.308 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:47.820 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:47.836 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:47.848 31 W - Select Top 1 * From Sky_Category Where CategoryName=N'谈天说地1' Order By ID Desc
+03:44:47.874 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1 And CategoryId=2) XCode_T1 Where rowNumber Between 1 And 5
+03:44:47.887 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:47.899 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:47.910 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:47.922 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:47.950 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:47.967 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:44:54.852 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:44:54.876 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:44:54.888 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:44:54.907 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:44:54.918 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:44:54.948 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:44:54.961 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:44:54.972 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:44:54.983 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:45:01.082  9 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:45:01.099  9 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:45:01.112  9 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:45:01.145  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:45:01.156  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:45:01.169  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:45:01.182  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:45:01.193  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:45:01.224  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:45:13.293 31 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:45:13.311 31 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:45:13.324 31 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:45:13.337 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:45:13.349 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:45:13.374 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:45:13.386 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:45:13.396 31 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:45:13.407 31 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:45:14.174  9 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:45:14.186  9 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:45:14.198  9 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:45:14.220  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:45:14.230  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:45:14.242  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:45:14.253  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:45:14.264  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:45:14.290  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:45:14.578  9 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:45:14.592  9 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:45:14.616  9 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:45:14.628  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:45:14.639  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:45:14.652  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:45:14.677  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:45:14.688  9 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:45:14.702  9 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc
+03:45:14.969 17 W - Select * From Sky_Category Order By IsTop desc,Sort
+03:45:14.984 17 W - Select * From (Select *, row_number() over(Order By Hits desc,IsTop) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 7
+03:45:15.019 17 W - Select * From (Select *, row_number() over(Order By IsTop desc,Sort,CreateTime desc) as rowNumber From Sky_Article Where [State]=1) XCode_T1 Where rowNumber Between 1 And 5
+03:45:15.053 17 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=1
+03:45:15.067 17 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=1 Order By ID Desc
+03:45:15.095 17 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=2
+03:45:15.107 17 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=3
+03:45:15.120 17 W - Select Count(*) From Sky_Article Where IsDel=0 And CategoryId=4
+03:45:15.132 17 W - Select Top 20 * From Sky_Article Where IsDel=0 And CategoryId=4 Order By ID Desc

@@ -26,8 +26,8 @@
                         {
                             foreach (var item in categories)
                             {
-                                //var selected = item.ID == int.Parse(ViewBag.CagegotyId) ? "selected" : "";
-                                <option value="@item.ID" @*@selected*@>@item.CategoryName</option>
+                                var selected = item.ID == ViewBag.CagegotyId? "selected" : "";
+                                <option value="@item.ID" @selected>@item.CategoryName</option>
                             }
                         }
                     </select>
@@ -103,7 +103,7 @@
                 {
                     <tr>
                         <td>@item.ID</td>
-                        <td>@item.MyCategory.CategoryName</td>
+                        <td>@item.Category.CategoryName</td>
                         <td>
                             <a href="@Url.Action("Edit", "Article", new { id = item.ID })">@item.Title</a>
                         </td>
@@ -122,7 +122,7 @@
                         }
                         <td style="text-align:center;">@Html.Raw(topText)</td>
                         <td>
-                            <a href="@Url.Action("Detail", "Home", new { id = item.ID })" target="_blank">预览</a>
+                            <a href="@Url.Action("Detail", "Home", new { articleId = item.ID })" target="_blank">预览</a>
                             <a href="@Url.Action("Edit", "Article", new { id = item.ID })">编辑</a>
                             <a href="javascript:;" data-id="@item.ID" data-opt="del">删除</a>
                         </td>

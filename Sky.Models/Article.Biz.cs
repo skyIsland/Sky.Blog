@@ -85,8 +85,11 @@ namespace Sky.Models
         /// <summary>
         /// 所属分类
         /// </summary>
-        public Category MyCategory => Category.FindByID(CategoryId);
-
+        public Category Category => Category.FindByID(CategoryId)??new Category();
+        /// <summary>
+        /// 所属评论
+        /// </summary>
+        public List<Comment> Comments => Comment.FindAllByArticleID(ID);
         #endregion
 
         #region 扩展查询

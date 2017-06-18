@@ -77,7 +77,7 @@ namespace Beginner.Blog.Controllers
 
             var pages = GetList(searchInfo, false);
             var items = pages.Items;
-            var list = items.Select(p => { return new { p.Title, p.IsTop, CreateTime = p.CreateTime.ToString("yyyy-MM-dd HH:mm"), p.Id }; });
+            var list = items.Select(p => new { p.Title, p.IsTop, CreateTime = p.CreateTime.ToString("yyyy-MM-dd HH:mm"), p.Id });
 
             return Json(new { data = list, page = pages.TotalPages }, JsonRequestBehavior.AllowGet);
         }

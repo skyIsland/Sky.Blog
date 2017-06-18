@@ -1,0 +1,5 @@
+F:\Project\Blog\Sky.Blog\Sky.Common\bin\Debug\Sky.Common.dll
+F:\Project\Blog\Sky.Blog\Sky.Common\bin\Debug\Sky.Common.pdb
+F:\Project\Blog\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.csprojResolveAssemblyReference.cache
+F:\Project\Blog\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.dll
+F:\Project\Blog\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.pdb

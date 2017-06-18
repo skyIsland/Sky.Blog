@@ -12,7 +12,7 @@ namespace Sky.Models
     [Serializable]
     [DataObject]
     [Description("评论")]
-    [BindIndex("PK_SKy.Comment", true, "ID")]
+    [BindIndex("PK__SKy_Comm__3214EC27767297E6", true, "ID")]
     [BindTable("SKy_Comment", Description = "评论", ConnName = "Conn", DbType = DatabaseType.SqlServer)]
     public partial class Comment : IComment
     {
@@ -29,16 +29,16 @@ namespace Sky.Models
             set { if (OnPropertyChanging(__.ID, value)) { _ID = value; OnPropertyChanged(__.ID); } }
         }
 
-        private String _Nickname;
+        private String _NickName;
         /// <summary>昵称</summary>
         [DisplayName("昵称")]
         [Description("昵称")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(2, "Nickname", "昵称", null, "nvarchar(50)", 0, 0, true)]
-        public virtual String Nickname
+        [BindColumn(2, "NickName", "昵称", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String NickName
         {
-            get { return _Nickname; }
-            set { if (OnPropertyChanging(__.Nickname, value)) { _Nickname = value; OnPropertyChanged(__.Nickname); } }
+            get { return _NickName; }
+            set { if (OnPropertyChanging(__.NickName, value)) { _NickName = value; OnPropertyChanged(__.NickName); } }
         }
 
         private String _Email;
@@ -129,7 +129,7 @@ namespace Sky.Models
                 switch (name)
                 {
                     case __.ID : return _ID;
-                    case __.Nickname : return _Nickname;
+                    case __.NickName : return _NickName;
                     case __.Email : return _Email;
                     case __.CommentText : return _CommentText;
                     case __.ArticleId : return _ArticleId;
@@ -144,7 +144,7 @@ namespace Sky.Models
                 switch (name)
                 {
                     case __.ID : _ID = Convert.ToInt32(value); break;
-                    case __.Nickname : _Nickname = Convert.ToString(value); break;
+                    case __.NickName : _NickName = Convert.ToString(value); break;
                     case __.Email : _Email = Convert.ToString(value); break;
                     case __.CommentText : _CommentText = Convert.ToString(value); break;
                     case __.ArticleId : _ArticleId = Convert.ToInt32(value); break;
@@ -165,7 +165,7 @@ namespace Sky.Models
             public static readonly Field ID = FindByName(__.ID);
 
             ///<summary>昵称</summary>
-            public static readonly Field Nickname = FindByName(__.Nickname);
+            public static readonly Field NickName = FindByName(__.NickName);
 
             ///<summary>电子邮箱</summary>
             public static readonly Field Email = FindByName(__.Email);
@@ -195,7 +195,7 @@ namespace Sky.Models
             public const String ID = "ID";
 
             ///<summary>昵称</summary>
-            public const String Nickname = "Nickname";
+            public const String NickName = "NickName";
 
             ///<summary>电子邮箱</summary>
             public const String Email = "Email";
@@ -227,7 +227,7 @@ namespace Sky.Models
         Int32 ID { get; set; }
 
         /// <summary>昵称</summary>
-        String Nickname { get; set; }
+        String NickName { get; set; }
 
         /// <summary>电子邮箱</summary>
         String Email { get; set; }

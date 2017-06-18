@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using Sky.Blog.Filters;
 namespace Sky.Blog
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -13,6 +13,8 @@ namespace Sky.Blog
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinderConfig.RegisterBinder();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

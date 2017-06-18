@@ -43,8 +43,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="XCode, Version=9.5.6373.296, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NewLife.XCode.9.5.6373.296\lib\net45\XCode.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NewLife.XCode.9.4.6295.19987\lib\net45\XCode.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +55,17 @@
     <Compile Include="Comment.Biz.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysUsers.Biz.cs" />
+    <Compile Include="SysUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sky.Common\Sky.Common.csproj">
+      <Project>{465b1172-9e91-481e-971d-71e4307ef930}</Project>
+      <Name>Sky.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

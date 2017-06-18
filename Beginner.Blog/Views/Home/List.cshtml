@@ -25,7 +25,7 @@
                 {
                     <li>
                         <a href="@Url.Action("CategorySearch","Home",new { categoryName = item.CategoryName})">@item.CategoryName</a>
-                        <aside>@item.Articles.Where(p => !p.IsDel && p.State == (int)Beginner.Blog.ViewModels.ArticleStatus.Normal).Count()</aside>
+                        <aside>@item.Articles.Count(p => !p.IsDel && p.State == (int)Beginner.Blog.ViewModels.ArticleStatus.Normal)</aside>
                     </li>
                 }
             }

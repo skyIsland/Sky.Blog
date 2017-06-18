@@ -21,3 +21,16 @@ F:\git\Sky.Blog\Sky.Models\bin\Debug\XCode.xml
 F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.csprojResolveAssemblyReference.cache
 F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.dll
 F:\git\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.pdb
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Models.dll
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Models.pdb
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.dll
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\XCode.dll
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.pdb
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\NewLife.Core.xml
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\XCode.pdb
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\XCode.xml
+F:\Project\Blog\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.dll
+F:\Project\Blog\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.pdb
+F:\Project\Blog\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.csprojResolveAssemblyReference.cache
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.dll
+F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.pdb

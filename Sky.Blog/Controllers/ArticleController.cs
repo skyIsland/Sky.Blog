@@ -5,16 +5,44 @@ using System.Web;
 using System.Web.Mvc;
 using Sky.Models;
 using Sky.Blog.Core;
+using XCode;
 
 namespace Sky.Blog.Controllers
 {
     public class ArticleController : BaseController
     {
-        // GET: Article
-        public ActionResult List(int pageIndex = 1, int pageSize = 15)
+        /// <summary>
+        /// 文章列表页(带上搜索功能)
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="state"></param>
+        /// <param name="title"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public ActionResult List(int? category,int? state,string title = "", int pageIndex = 1, int pageSize = 15)
         {
-            var allArticle = Article.FindAll(Article._.IsDel+"=0","Sort",null,(pageIndex - 1)* pageSize, pageSize);
-            int count = Article.FindCount(Article._.IsDel == 0);
+            #region 构造查询表达式
+            var exp = new WhereExpression();
+            exp &= Article._.IsDel == 0;
+            if (category.HasValue&category!=0)
+            {
+                exp &= Article._.CategoryId == category;
+                ViewBag.CagegotyId = category;
+            }
+            if (!title.IsNullOrEmpty())
+            {
+                exp &= Article._.Title.Contains(title);
+                ViewBag.ArticleTitle = title;
+            }
+            if (state.HasValue&state!=0)
+            {
+                exp &= Article._.State==state;
+                ViewBag.State = state;
+            }
+            #endregion
+            var allArticle = Article.FindAll(exp, Article._.IsTop+" desc,Sort",null,(pageIndex - 1)* pageSize, pageSize);
+            int count = Article.FindCount(exp);
             ViewBag.Categories = Category.FindAll();
             ViewBag.PageNo = pageIndex;
             ViewBag.TotalPage = count/2==0?count:count+1;           

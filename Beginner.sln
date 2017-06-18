@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.Models", "Sky.Models\Sk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.Blog", "Sky.Blog\Sky.Blog.csproj", "{8970C43A-4934-4DB1-8DDF-1C2EE8CA734F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.Common", "Sky.Common\Sky.Common.csproj", "{465B1172-9E91-481E-971D-71E4307EF930}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8970C43A-4934-4DB1-8DDF-1C2EE8CA734F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8970C43A-4934-4DB1-8DDF-1C2EE8CA734F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8970C43A-4934-4DB1-8DDF-1C2EE8CA734F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465B1172-9E91-481E-971D-71E4307EF930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465B1172-9E91-481E-971D-71E4307EF930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465B1172-9E91-481E-971D-71E4307EF930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465B1172-9E91-481E-971D-71E4307EF930}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

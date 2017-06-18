@@ -2,10 +2,9 @@
 using System.Web.Mvc;
 using Sky.Blog.Configs.Models;
 using Sky.Blog.Helper;
-
 namespace Sky.Blog.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class BaseController : Controller
     {
 

@@ -5,8 +5,8 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using NewLife.Log;
 using Newtonsoft.Json;
-using Sky.Blog.Core.Logging;
 using Sky.Blog.Helper;
 
 namespace Sky.Blog.Core.Email
@@ -18,11 +18,9 @@ namespace Sky.Blog.Core.Email
         private readonly EmailAccount email;
         private readonly string filePath;//配置文件物理路径
 
-        private readonly ILogger _logger;
 
         public SmtpService()
         {
-            _logger = new Log4NetAdapter();
             //配置文件虚拟路径
             var path = ConfigHelper.AppSetting("EmailConfigPath", "");
             filePath = HttpContext.Current.Server.MapPath(path == null ? "~/Config/EmailConfig.json" : path);
@@ -33,7 +31,7 @@ namespace Sky.Blog.Core.Email
             }
             catch (Exception ex)
             {
-                _logger.Error("读取配置文件出错，请检查配置文件是否存在！", ex);
+                XTrace.Log.Error("读取配置文件出错，请检查配置文件是否存在！", ex);
             }
         }
         /// <summary>
@@ -47,7 +45,7 @@ namespace Sky.Blog.Core.Email
         {
             if (email == null)
             {
-                _logger.Error("配置出错，请检查配置内容！文件路径：" + filePath);
+                XTrace.Log.Error("配置出错，请检查配置内容！文件路径：" + filePath);
                 return;
             }
             try
@@ -83,7 +81,7 @@ namespace Sky.Blog.Core.Email
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "发送邮件时发生错误！");
+                XTrace.Log.Error("发送邮件时发生错误！",ex);
             }
         }
         /// <summary>
@@ -97,7 +95,7 @@ namespace Sky.Blog.Core.Email
         {
             if (email == null)
             {
-                _logger.Error("配置出错，请检查配置内容！文件路径：" + filePath);
+                XTrace.Log.Error("配置出错，请检查配置内容！文件路径：" + filePath);
                 return;
             }
             try
@@ -133,13 +131,13 @@ namespace Sky.Blog.Core.Email
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "发送邮件时发生错误！");
+                XTrace.Log.Error("发送邮件时发生错误！",ex);
             }
         }
         //异步电子邮件发送操作完成后执行该方法。
         private void Smtp_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            _logger.Information("异步发送邮件完成！");
+            XTrace.Log.Info("异步发送邮件完成！");
         }
         ///<summary>
         /// 添加附件
@@ -164,7 +162,7 @@ namespace Sky.Blog.Core.Email
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "发送邮件时发生错误！");
+                XTrace.Log.Error("发送邮件时发生错误！",ex);
             }
         }
     }

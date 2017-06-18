@@ -14,7 +14,7 @@ namespace Sky.Blog.Controllers
             var setting = GetSetting();
             if (setting != null)
                 pageSize = setting.ManagePageSize;
-            var totalRows = Category.FindAll("1=1",Category._.IsTop+","+Category._.Sort,null,(pageNo-1)*pageSize,pageSize);
+            var totalRows = Category.FindAll("1=1",Category._.IsTop+" desc,"+Category._.Sort,null,(pageNo-1)*pageSize,pageSize);
             return View(totalRows);
         }
 

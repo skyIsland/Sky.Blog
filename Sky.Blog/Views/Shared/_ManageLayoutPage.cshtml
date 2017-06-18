@@ -8,13 +8,13 @@
     <title>@ViewBag.Title - 后台管理</title>
     <link href="~/Plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Plugins/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/Content/global.css" rel="stylesheet" />
+    <link href="~/Content/css/global.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
 <body class="layui-body-admin">
     <div class="layui-layout-admin">
         <div class="layui-header">
-            <a href="#" class="logo layui-left"><img src="" alt="">初学者</a>
+            <a href="#" class="logo layui-left"><img src="" alt="">傻大蒙</a>
         </div>
         <div class="layui-side" style="background-color:#393D49; color:white;">
             <div style="height: 100px;padding: 5px;line-height: 40px;text-align: center;">
@@ -34,9 +34,9 @@
                 <li class="layui-nav-item ">
                     <a href="javascript:;">留言管理</a>
                 </li>
-                <li class="layui-nav-item">
+                @*<li class="layui-nav-item">
                     <a href="@Url.Action("List","Log")">操作日志</a>
-                </li>
+                </li>*@
                 <li class="layui-nav-item">
                     <a href="@Url.Action("BasicSetting","Setting")">设置</a>
                 </li>

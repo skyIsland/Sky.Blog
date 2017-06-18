@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sky.Models;
 using XCode;
 
 namespace Sky.Blog.Core
@@ -6,8 +7,7 @@ namespace Sky.Blog.Core
     /// <summary>
     /// 分页结果集
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public class Pager<TEntity>
+    public class Pager
     {
         /// <summary>
         /// 总行数
@@ -47,7 +47,7 @@ namespace Sky.Blog.Core
         /// <summary>
         /// 结果集
         /// </summary>
-        public List<TEntity> Items { get; set; }
+        public List<Article> Items { get; set; }
 
         public Pager()
         {

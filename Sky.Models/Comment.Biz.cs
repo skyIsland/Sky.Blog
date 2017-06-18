@@ -92,6 +92,19 @@ namespace Sky.Models
             // 单对象缓存
             //return Meta.SingleCache[id];
         }
+        /// <summary>根据文章ID查找</summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public static List<Comment> FindAllByArticleID(Int32 id)
+        {
+            if (Meta.Count >= 1000)
+                return FindAll(_.ArticleId, id);
+            else // 实体缓存
+                return Meta.Cache.Entities.FindAll(__.ArticleId, id);
+            // 单对象缓存
+            //return Meta.SingleCache[id];
+        }
         #endregion
 
         #region 高级查询
