@@ -45,7 +45,7 @@ namespace Sky.Blog.Controllers
             int count = Article.FindCount(exp);
             ViewBag.Categories = Category.FindAll();
             ViewBag.PageNo = pageIndex;
-            ViewBag.TotalPage = count/2==0?count:count+1;           
+            ViewBag.TotalPage = count% pageSize == 0?count:count+1;           
             return View(allArticle);
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace Sky.Blog.Controllers
                 ViewBag.Categories = Category.FindAll();             
                 return View(model);
             }
-            return RedirectToAction("NotFound", "Message");
+            return RedirectToAction("Error500", "ErrorPage");
         }
         /// <summary>
         /// 保存文章

@@ -23,8 +23,6 @@ namespace Sky.Blog
                     ModelBinders.Binders.Add(type, binder);
                 }
             }
-            //ModelBinders.Binders.Add(typeof(QueryRequest), new FlexGridQueryBinder());
-            //ModelBinders.Binders.Add(typeof(Pager), new GridQueryBinder());
         }
     }
 }

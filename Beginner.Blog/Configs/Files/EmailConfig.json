@@ -1,9 +1,0 @@
-﻿{
-  "Host": "smtp.126.com",
-  "Port": 25,
-  "Form": "beginner2016@126.com",
-  "UserName": "beginner2016",
-  "Password": "",
-  "EnableSsl": false,
-  "EnablePwdAuthentication": false
-}

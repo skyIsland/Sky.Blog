@@ -99,7 +99,7 @@ namespace Sky.Blog.Controllers
                     return View(article);
                 }
             }
-            return RedirectToAction("NotFound", "Message");
+            return RedirectToAction("Error500", "ErrorPage");
         }
         //关于
         public ActionResult About()
@@ -143,7 +143,7 @@ namespace Sky.Blog.Controllers
             smtpService.SendMail(model.Email, subject, model.CommentText.Length > 5 ? model.CommentText.Substring(0, 4) + "..." : "请打开博客查看详情");
             //Core.Email.EmailServiceFactory.GetEmailService().SendMail(model.Email, subject, model.CommentText.Length>5?model.CommentText.Substring(0,4)+"...":"请打开博客查看详情");
 
-            return RedirectToAction("Detail", new { id = model.ArticleId });
+            return RedirectToAction("Detail", new { articleId = model.ArticleId });
         }
         /// <summary>
         /// 加载侧边数据

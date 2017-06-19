@@ -108,7 +108,9 @@
     <Content Include="Content\css\global.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
-    <Content Include="Content\css\PagedList.css" />
+    <Content Include="Content\css\pintuer.css" />
+    <Content Include="Content\images\ds-1.gif" />
+    <Content Include="Content\images\ds-2.png" />
     <Content Include="Content\images\login-bg-1.jpg" />
     <Content Include="Content\images\login-bg.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

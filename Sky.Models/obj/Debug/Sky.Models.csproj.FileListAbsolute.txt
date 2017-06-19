@@ -34,3 +34,5 @@ F:\Project\Blog\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.pdb
 F:\Project\Blog\Sky.Blog\Sky.Models\obj\Debug\Sky.Models.csprojResolveAssemblyReference.cache
 F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.dll
 F:\Project\Blog\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.pdb
+F:\git\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.dll
+F:\git\Sky.Blog\Sky.Models\bin\Debug\Sky.Common.pdb

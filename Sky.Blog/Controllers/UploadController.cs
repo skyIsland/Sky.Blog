@@ -8,25 +8,27 @@ namespace Sky.Blog.Controllers
 {
     public class UploadController : Controller
     {
-        //目前只支持单文件
+        /// <summary>
+        /// 上传文件--目前只支持单文件,上传图片未做裁剪处理,上传文件信息未记录
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase f)
         {
 
-            var files = Request.Files;
-
-            if (files.Count == 0)
+            var curFile = Request.Files[0];
+            if (curFile == null|| curFile.ContentLength==0)
             {
                 var json = new
                 {
                     code = 1,
-                    msg = "没有找到要上传的文件呢，请重新选择吧。"
+                    msg = "没有找到要上传的图片呢(或者图片大小为0啵)，请重新选择吧。"
                 };
                 return Json(json);
             }
             try
-            {
-                var curFile = files[0];
+            {               
                 //扩展文件夹 e.g. /2016/10/
                 var extPath = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month.ToString() + "/";
                 //获取图片文件保存的完整路径
@@ -46,7 +48,6 @@ namespace Sky.Blog.Controllers
                 //保存文件
                 curFile.SaveAs(path);
 
-                var resourcesSystemUrl = ConfigurationManager.AppSettings["ResourcesSystemUrl"];
 
                 return Json(new
                 {
@@ -54,7 +55,7 @@ namespace Sky.Blog.Controllers
                     msg = "咦？好像上传成功了呢。",
                     data = new
                     {
-                        src = resourcesSystemUrl + "uploads/images/" + extPath + newFileName,
+                        src = "/uploads/images/" + extPath + newFileName,
                         title = "这是图片的标题啊。"
                     }
                 });
