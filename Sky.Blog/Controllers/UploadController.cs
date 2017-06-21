@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using Sky.Common;
+using Sky.Models;
 
 namespace Sky.Blog.Controllers
 {
@@ -29,8 +32,28 @@ namespace Sky.Blog.Controllers
             }
             try
             {               
-                //扩展文件夹 e.g. /2016/10/
-                var extPath = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month.ToString() + "/";
+                int intDocLen = curFile.ContentLength;
+                byte[] Docbuffer = new byte[intDocLen];
+                curFile.InputStream.Read(Docbuffer, 0, intDocLen);
+                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+                byte[] bytHash = md5.ComputeHash(Docbuffer);
+                string fileHash = BitConverter.ToString(bytHash);
+                var files = UploadFiles.FindByMd5(fileHash);
+                if (files != null)
+                {
+                    return Json(new
+                    {
+                        code = 0,
+                        msg = "咦？已经存在了呢。",
+                        data = new
+                        {
+                            src = files.FilePath,
+                            title = files.FileName
+                        }
+                    });
+                }
+                //保存路径
+                var extPath = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month + "/";
                 //获取图片文件保存的完整路径
                 var fileSavePath = Server.MapPath("~/uploads/images/" + extPath);
                 //路径不存在则创建
