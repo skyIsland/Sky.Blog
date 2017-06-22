@@ -71,7 +71,19 @@ namespace Sky.Blog.Controllers
                 //保存文件
                 curFile.SaveAs(path);
 
-
+                files=new UploadFiles
+                {
+                    Id = Guid.NewGuid(),
+                    FileName = fileName,
+                    CreatBy = "傻大蒙",
+                    FileExt = filePostfixName,
+                    FileSizeString = FormatFileSize(curFile.ContentLength),
+                    FileType = curFile.ContentType,
+                    bytHash = fileHash,
+                    IsImg = CheckFileIsImg(curFile.ContentType),
+                    FilePath = "/uploads/images/" + extPath + newFileName
+                };
+                files.Insert();
                 return Json(new
                 {
                     code = 0,
@@ -99,5 +111,57 @@ namespace Sky.Blog.Controllers
         {
             return View();
         }
+        #region 格式化文件大小文本
+        /// <summary>
+        /// 格式化文件大小样式
+        /// </summary>
+        /// <param name="fileSize">文件大小</param>
+        /// <returns></returns>
+        public static string FormatFileSize(int fileSize)
+        {
+            return FormatFile(fileSize);
+        }
+        /// <summary>
+        /// 格式化文件大小样式（返回MB、KB或者Byte)
+        /// </summary>
+        /// <param name="fileSize">文件大小</param>
+        /// <returns></returns>
+        public static string FormatFile(long fileSize)
+        {
+            string str;
+            if (fileSize > 1048576)
+            {
+                str = Math.Round(Convert.ToDouble(fileSize / 1048576), 2).ToString() + " MB";
+            }
+            else if (fileSize > 1024)
+            {
+                str = Math.Round(Convert.ToDouble(fileSize / 1024), 2).ToString() + " KB";
+            }
+            else
+            {
+                str = fileSize.ToString() + " byte";
+            }
+            return str;
+        }
+        #endregion
+        #region"方法--通过文件后缀名判断是否是图片"
+        private bool CheckFileIsImg(string filetype)
+        {
+            if (string.IsNullOrEmpty(filetype))
+                return false;
+            filetype = filetype.ToLower().Replace(".", "");
+            switch (filetype)
+            {
+                case "gif":
+                case "png":
+                case "jpg":
+                case "jpeg":
+                case "bmp":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        #endregion
     }
 }

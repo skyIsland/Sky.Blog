@@ -122,13 +122,13 @@
         function submit($,params)
         {
             $.post('@Url.Action("Login","Account")',params , function (res) {
-                if (!res.success) {
-                    if (res.data !== undefined)
+                if (!res.Status) {
+                    if (res.Data !== undefined)
                         errorCount = res.data.errorCount;
-                    layer.msg(res.message,{icon:2});
+                    layer.msg(res.Msg,{icon:2});
                 }else
                 {
-                    layer.msg(res.message,{icon:1},function(index){
+                    layer.msg(res.Msg,{icon:1},function(index){
                         layer.close(index);
                         location.href='@Url.Action("List","Article")';
                     });

@@ -18,7 +18,7 @@ namespace Sky.Blog.Filters
             XTrace.WriteException(context.Exception);
             #endregion
 
-            #region 暂时屏蔽Ajax请求发生的错误--没用到异步
+            #region 处理错误
             //如果请求方式为AJax，将返回Json格式数据
             if (request.IsAjaxRequest())
             {

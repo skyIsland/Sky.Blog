@@ -8,8 +8,3 @@ F:\git\Sky.Blog\Sky.Common\bin\Debug\Sky.Common.pdb
 F:\git\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.csprojResolveAssemblyReference.cache
 F:\git\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.dll
 F:\git\Sky.Blog\Sky.Common\obj\Debug\Sky.Common.pdb
-F:\Study\Blog\Sky.Common\bin\Debug\Sky.Common.dll
-F:\Study\Blog\Sky.Common\bin\Debug\Sky.Common.pdb
-F:\Study\Blog\Sky.Common\obj\Debug\Sky.Common.csprojResolveAssemblyReference.cache
-F:\Study\Blog\Sky.Common\obj\Debug\Sky.Common.dll
-F:\Study\Blog\Sky.Common\obj\Debug\Sky.Common.pdb

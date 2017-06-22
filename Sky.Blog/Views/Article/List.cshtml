@@ -152,13 +152,13 @@
                 cont: 'page'
                 ,curr:@ViewBag.PageNo
                 ,pages: @ViewBag.TotalPage //总页数
-                ,groups: 5 //连续显示分页数
+                ,groups: 3//连续显示分页数
                 ,jump:function(obj, first){
                     //得到了当前页，用于向服务端请求对应数据
                     var curr = obj.curr;
                     if(!first){
-                        layer.msg('第 '+ obj.curr +' 页');
-                        @*location.href = '/manage/article_list_'+curr+'_'+@Model.ItemsPerPage;*@
+                        //layer.msg('第 '+ obj.curr +' 页');
+                        location.href = "@(Url.Action("List"))?pageIndex="+curr;
                     }
                 }
             });

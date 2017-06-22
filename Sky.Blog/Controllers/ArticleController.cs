@@ -21,7 +21,7 @@ namespace Sky.Blog.Controllers
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public ActionResult List(int? category,int? state,string title = "", int pageIndex = 1, int pageSize = 15)
+        public ActionResult List(int? category,int? state,string title = "", int pageIndex = 1, int pageSize = 2)
         {
             #region 构造查询表达式
             var exp = new WhereExpression();
@@ -46,7 +46,7 @@ namespace Sky.Blog.Controllers
             int count = Article.FindCount(exp);
             ViewBag.Categories = Category.FindAll();
             ViewBag.PageNo = pageIndex;
-            ViewBag.TotalPage = count% pageSize == 0?count:count+1;           
+            ViewBag.TotalPage = Math.Ceiling((double)count/pageSize);           
             return View(allArticle);
         }
         /// <summary>

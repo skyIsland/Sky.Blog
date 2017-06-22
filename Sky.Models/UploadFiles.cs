@@ -10,9 +10,9 @@ namespace Sky.Models
     [Serializable]
     [DataObject]
     [Description("文件上传关联对象信息")]
-    [BindIndex("IX_Gxu_UploadFiles", false, "InfoID")]
-    [BindIndex("PK__Gxu_Uplo__3214EC07662B2B3B", true, "Id")]
-    [BindTable("Gxu_UploadFiles", Description = "文件上传关联对象信息", ConnName = "FilesConn", DbType = DatabaseType.SqlServer)]
+    [BindIndex("IX_Sky_UploadFiles", false, "InfoID")]
+    [BindIndex("PK__Sky_Uplo__3214EC07662B2B3B", true, "Id")]
+    [BindTable("Sky_UploadFiles", Description = "文件上传关联对象信息", ConnName = "Conn", DbType = DatabaseType.SqlServer)]
     public partial class UploadFiles : IUploadFiles
     {
         #region 属性
@@ -38,20 +38,7 @@ namespace Sky.Models
         {
             get { return _FileName; }
             set { if (OnPropertyChanging(__.FileName, value)) { _FileName = value; OnPropertyChanged(__.FileName); } }
-        }
-
-        private String _FileSize;
-        /// <summary>文件大小</summary>
-        [DisplayName("文件大小")]
-        [Description("文件大小")]
-        [DataObjectField(false, false, true, 255)]
-        [BindColumn(3, "FileSize", "文件大小", null, "nvarchar(255)", 0, 0, true)]
-        public virtual String FileSize
-        {
-            get { return _FileSize; }
-            set { if (OnPropertyChanging(__.FileSize, value)) { _FileSize = value; OnPropertyChanged(__.FileSize); } }
-        }
-
+        }       
         private String _FileType;
         /// <summary>文件类型</summary>
         [DisplayName("文件类型")]
@@ -164,7 +151,6 @@ namespace Sky.Models
                 {
                     case __.Id : return _Id;
                     case __.FileName : return _FileName;
-                    case __.FileSize : return _FileSize;
                     case __.FileType : return _FileType;
                     case __.FileExt : return _FileExt;
                     case __.FilePath : return _FilePath;
@@ -182,7 +168,6 @@ namespace Sky.Models
                 {
                     case __.Id : _Id = (Guid)value; break;
                     case __.FileName : _FileName = Convert.ToString(value); break;
-                    case __.FileSize : _FileSize = Convert.ToString(value); break;
                     case __.FileType : _FileType = Convert.ToString(value); break;
                     case __.FileExt : _FileExt = Convert.ToString(value); break;
                     case __.FilePath : _FilePath = Convert.ToString(value); break;
@@ -206,9 +191,6 @@ namespace Sky.Models
 
             ///<summary>文件名称</summary>
             public static readonly Field FileName = FindByName(__.FileName);
-
-            ///<summary>文件大小</summary>
-            public static readonly Field FileSize = FindByName(__.FileSize);
 
             ///<summary>文件类型</summary>
             public static readonly Field FileType = FindByName(__.FileType);
@@ -244,9 +226,6 @@ namespace Sky.Models
 
             ///<summary>文件名称</summary>
             public const String FileName = "FileName";
-
-            ///<summary>文件大小</summary>
-            public const String FileSize = "FileSize";
 
             ///<summary>文件类型</summary>
             public const String FileType = "FileType";
@@ -284,9 +263,6 @@ namespace Sky.Models
 
         /// <summary>文件名称</summary>
         String FileName { get; set; }
-
-        /// <summary>文件大小</summary>
-        String FileSize { get; set; }
 
         /// <summary>文件类型</summary>
         String FileType { get; set; }

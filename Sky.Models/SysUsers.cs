@@ -10,8 +10,8 @@ namespace Sky.Models
     [Serializable]
     [DataObject]
     [Description("系统管理员信息")]
-    [BindIndex("PK__Gxu_SysU__3214EC2733D4B598", true, "ID")]
-    [BindTable("Gxu_SysUsers", Description = "系统管理员信息", ConnName = "Conn", DbType = DatabaseType.SqlServer)]
+    [BindIndex("PK__Sky_SysU__3214EC2733D4B598", true, "ID")]
+    [BindTable("Sky_SysUsers", Description = "系统管理员信息", ConnName = "Conn", DbType = DatabaseType.SqlServer)]
     public partial class SysUsers : ISysUsers
     {
         #region 属性
