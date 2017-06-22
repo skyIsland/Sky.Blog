@@ -71,7 +71,7 @@
                     var id = $this.data('id');
                     var name = $this.data('name');
                     var msg = '你真的要把  <span style="color:red;">' + name + '</span> 给删除吗？<img src="' + location.origin + '/Plugins/layui/images/face/4.gif" alt="[可怜]">'
-                    var title = '萌萌的提示<img src="' + location.origin + '/Plugins/layui/images/face/7.gif" alt="[害羞]">'
+                    var title = '萌萌的提示<img src="' + location.origin + '/Plugins/layui/images/face/7.gif" alt="[害羞]">';
                     layer.confirm(msg, { icon: 3, title: title }, function (index) {
                         var params = {
                             t: Math.random(),
@@ -79,13 +79,13 @@
                         };
                         $.post('@Url.Action("Delete", "Category")', params, function (result) {
 
-                            if (result.success) {
-                                layer.msg(result.message, { icon: 1 }, function (index) {
+                            if (result.Status) {
+                                layer.msg(result.Msg, { icon: 1 }, function (index) {
                                     location.reload();
                                 });
                             }
                             else {
-                                layer.msg(result.message, { icon: 2 });
+                                layer.msg(result.Msg, { icon: 2 });
                             }
 
                         }, 'json');

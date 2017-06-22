@@ -99,7 +99,6 @@ F:\git\Sky.Blog\Sky.Blog\bin\roslyn\VBCSCompiler.exe.config
 F:\git\Sky.Blog\Sky.Blog\bin\Sky.Blog.dll.config
 F:\git\Sky.Blog\Sky.Blog\bin\Sky.Blog.dll
 F:\git\Sky.Blog\Sky.Blog\bin\Sky.Blog.pdb
-F:\git\Sky.Blog\Sky.Blog\bin\Autofac.dll
 F:\git\Sky.Blog\Sky.Blog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 F:\git\Sky.Blog\Sky.Blog\bin\Microsoft.Web.Infrastructure.dll
 F:\git\Sky.Blog\Sky.Blog\bin\NewLife.Core.dll
@@ -113,7 +112,6 @@ F:\git\Sky.Blog\Sky.Blog\bin\System.Web.Webpages.dll
 F:\git\Sky.Blog\Sky.Blog\bin\System.Web.Webpages.Razor.dll
 F:\git\Sky.Blog\Sky.Blog\bin\XCode.dll
 F:\git\Sky.Blog\Sky.Blog\bin\Sky.Models.pdb
-F:\git\Sky.Blog\Sky.Blog\bin\Autofac.xml
 F:\git\Sky.Blog\Sky.Blog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\git\Sky.Blog\Sky.Blog\bin\NewLife.Core.pdb
 F:\git\Sky.Blog\Sky.Blog\bin\NewLife.Core.xml

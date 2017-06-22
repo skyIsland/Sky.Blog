@@ -50,12 +50,12 @@ namespace Sky.Blog.Controllers
             {
                 var sessionVerifyCode = Session["VerifyCode"];
                 if (sessionVerifyCode == null || verifyCode != sessionVerifyCode.ToString())
-                    return Json(GetResult(false, "验证码输入错误，请刷新重试。", new { errorCount = pwdErrorCount }));
+                    return Json(new AjaxResult {Data = new { errorCount = pwdErrorCount } ,Msg ="验证码输入错误,请刷新重试",Status = false});
             }
             var entity = SysUsers.FindByLoginName(model.LoginName);
             if (entity == null)
             {
-                return Json(GetResult(false, "用户不存在。"));
+                return Json(new AjaxResult(false,"用户名不存在"));
             }
             if (entity.PassWord != model.PassWord.ToMd5())
             {
@@ -65,7 +65,7 @@ namespace Sky.Blog.Controllers
                     count = Convert.ToInt32(errorCount) + 1;
                 Session["PwdErrorCount"] = count;
 
-                return Json(GetResult(false, "用户名或密码输错了呢。", new { errorCount = count }));
+                return Json(new AjaxResult(false, "用户名或密码输错了呢", new { errorCount = count }));
             }
             model.LastLoginIP = NewLife.Web.WebHelper.UserHost;
             model.LastLoginTime = DateTime.Now;
@@ -85,7 +85,7 @@ namespace Sky.Blog.Controllers
                 };
                 Response.Cookies.Set(cookie);
             }
-            return Json(GetResult(true, "登录成功。"));
+            return Json(new AjaxResult(msg: "登录成功."));
         }
 
         //登出
