@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Sky.Blog.Helper;
 using Sky.Models;
 namespace Sky.Blog.Controllers
 {
@@ -31,33 +32,19 @@ namespace Sky.Blog.Controllers
         public ActionResult Save(Category model)
         {
             if (model == null)
-                throw new ArgumentNullException(nameof(model));
-            //if (model.CategoryName.Length > 15)
-            //{
-            //    ViewBag.IsError = true;
-            //    return View("Edit");
-            //}
+                throw new ArgumentNullException(nameof(model));          
             if(model.ID==0)model.CreateTime=DateTime.Now;
             model.Save();
             return RedirectToAction("List");
         }
         [HttpPost]
-        public ActionResult Delete()
-        {
-            var id = Request["id"];
-            if (string.IsNullOrEmpty(id))
-                return Json(new { success = false, message = "删除失败，请刷新页面重试！" });
-            int cId;
-            if (!int.TryParse(id, out cId))
-                return Json(new { success = false, message = "非法参数，请刷新页面重试！" });
-
-            var exists = Category.FindByID(Convert.ToInt32(id)).Articles.Count>0;
+        public ActionResult Delete(Category model)
+        {          
+            var exists = model.Articles.Count>0;
             if (exists)
                 return Json(new { success = false, message = "该分类下存在文章，请先删除文章！" });
-
-            Category.FindByID(Convert.ToInt32(id)).Delete();
-
-            return Json(new { success = true, message = "删除成功!" });
+            model.Delete();
+            return Json(new AjaxResult { Msg = "删除成功" });
         }
 
         [HttpGet]

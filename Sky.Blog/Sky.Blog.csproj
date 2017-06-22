@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.4.0\lib\portable-win+net40+sl50+wp8\Autofac.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -239,6 +236,7 @@
     <Content Include="Scripts\highlight.js" />
     <Content Include="Configs\Files\EmailConfig.json" />
     <Content Include="Configs\Files\setting.json" />
+    <None Include="Properties\PublishProfiles\Blog.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -267,10 +265,6 @@
     <Compile Include="Core\Email\EmailServiceFactory.cs" />
     <Compile Include="Core\Email\IEmailService.cs" />
     <Compile Include="Core\Email\SmtpService.cs" />
-    <Compile Include="Core\Engines\EngineContainer.cs" />
-    <Compile Include="Core\Engines\EngineContainerFactory.cs" />
-    <Compile Include="Core\Engines\IDependency.cs" />
-    <Compile Include="Core\Engines\IEngine.cs" />
     <Compile Include="Core\Messaging\PageRequest.cs" />
     <Compile Include="Core\Messaging\ResponseBase.cs" />
     <Compile Include="Core\Pager.cs" />
@@ -280,11 +274,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AjaxResult.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\DataHelper.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\PinYinHelper.cs" />
-    <Compile Include="Helper\WebHelper.cs" />
     <Compile Include="Models\Enum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Units\Binder.cs" />
@@ -325,7 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Core\Extension\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sky.Common\Sky.Common.csproj">

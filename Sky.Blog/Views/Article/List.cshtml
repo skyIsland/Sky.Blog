@@ -173,9 +173,15 @@
                         location.origin +
                         '/Plugins/layui/images/face/4.gif" alt="[可怜]">';
                     var title = '萌萌的提示<img src="' + location.origin + '/Plugins/layui/images/face/7.gif" alt="[害羞]">';
-                    layer.confirm(msg, {icon: 3, title:title}, function(index){
-                        //do something
-                        layer.msg('你好狠，居然要删除我！！！');
+                    layer.confirm(msg, {icon: 3, title:title}, function(index) {
+                        $.post('@Url.Action("Delete")',{id:id},function(res) {
+                            layer.msg(res.Msg,function() {
+                                if (res.Status) { //删除成功
+                                    location.reload();
+                                } 
+                            });
+                        });
+                       
                         layer.close(index);
                     });
                 });

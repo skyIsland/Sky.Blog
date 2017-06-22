@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Sky.Models;
 using Sky.Blog.Core;
+using Sky.Blog.Helper;
 using XCode;
 
 namespace Sky.Blog.Controllers
@@ -86,6 +87,17 @@ namespace Sky.Blog.Controllers
             }
             model.Save();
             return RedirectToAction("List");
+        }
+        /// <summary>
+        /// 删除文章
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Delete(Article model)
+        {
+            model.Delete();
+            return Json(new AjaxResult{Msg="删除成功"});
         }
     }
 }

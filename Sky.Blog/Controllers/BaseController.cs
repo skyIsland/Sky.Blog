@@ -12,12 +12,6 @@ namespace Sky.Blog.Controllers
         protected Setting GetSetting()
         {
             return Configs.ConfigHelper.GetBasicConfig();
-        }
-
-
-        protected Dictionary<string, object> GetResult(bool success, string message, object data = null)
-        {
-            return DataHelper.GetResult(success, message, data);
-        }
+        }      
     }
 }

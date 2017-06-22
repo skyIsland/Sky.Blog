@@ -3,7 +3,7 @@ using System.Web;
 using Newtonsoft.Json;
 using Sky.Blog.Configs.Models;
 using Sky.Blog.Helper;
-
+using Sky.Common;
 namespace Sky.Blog.Configs
 {
     public class ConfigHelper
@@ -17,7 +17,7 @@ namespace Sky.Blog.Configs
             var settingCache = HttpContext.Current.Cache["Setting"];
             if (settingCache == null)
             {
-                var settingString = FileHelper.ReadFile(WebHelper.GetFilePath("~/Configs/Files/") + "setting.json");
+                var settingString = FileHelper.ReadFile(Utils.GetFilePath("~/Configs/Files/") + "setting.json");
                 var setting = JsonConvert.DeserializeObject<Setting>(settingString);
 
                 HttpContext.Current.Cache.Insert("Setting", setting);
@@ -32,7 +32,7 @@ namespace Sky.Blog.Configs
         /// <param name="setting"></param>
         public static void SetBasicConfig(Setting setting)
         {
-            var path = WebHelper.GetFilePath("~/Configs/Files/") + "setting.json";
+            var path = Utils.GetFilePath("~/Configs/Files/") + "setting.json";
             var fs = File.Create(path);
             fs.Close();
             var jsonStr = JsonConvert.SerializeObject(setting);
